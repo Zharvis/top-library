@@ -142,11 +142,14 @@ html {
 
 .wrapper {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   padding: 1rem;
   border-bottom: 3px solid gray;
+  flex-grow: 0;
 }
 
 .header > h1 {
@@ -154,19 +157,36 @@ html {
 }
 
 .main {
+  flex-grow: 1;
+  overflow: hidden;
   display: flex;
   padding: 4rem;
 }
 
 .cards {
-  overflow: visible;
+  border: 2px solid black;
+  padding: 1rem;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   flex-grow: 0;
 }
 
+.card > h2 {
+  font-size: 2rem;
+}
+
 .card {
   padding: 2rem;
   border: 2px solid black;
+}
+
+.card__status {
+  font-family: "Courier New", Courier, monospace;
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-content: center;
+  border: 2px solid gray;
 }
