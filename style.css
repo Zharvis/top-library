@@ -131,8 +131,42 @@ table {
 
 /* END OF RESET */
 
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 .wrapper {
   height: 100vh;
-  display: grid;
-  place-content: center;
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 3px solid gray;
+}
+
+.header > h1 {
+  font-size: 3rem;
+}
+
+.main {
+  display: flex;
+  padding: 4rem;
+}
+
+.cards {
+  overflow: visible;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  flex-grow: 0;
+}
+
+.card {
+  padding: 2rem;
+  border: 2px solid black;
 }
