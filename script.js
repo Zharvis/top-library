@@ -2,9 +2,7 @@ const cards = document.querySelector(".cards");
 const popupBtn = document.querySelector(".header__btn");
 const popup = document.querySelector(".pop-up");
 const abortBtn = document.querySelector(".pop-up__abort-btn");
-
-popupBtn.addEventListener("click", () => popup.classList.add("show"));
-abortBtn.addEventListener("click", () => popup.classList.remove("show"));
+const addBtn = document.querySelector(".pop-up__add-btn");
 
 let myLibrary = [
   { title: "Hobbit", author: "Larry", pages: 123, isRead: true },
@@ -77,3 +75,17 @@ function updateCards() {
 }
 
 updateCards();
+
+popupBtn.addEventListener("click", () => popup.classList.add("show"));
+abortBtn.addEventListener("click", () => popup.classList.remove("show"));
+addBtn.addEventListener("click", () => {
+  const form = document.querySelector(".pop-up__form");
+  const formData = new FormData(form);
+  const book = new Book(
+    formData.get("title"),
+    formData.get("author"),
+    +formData.get("pages"),
+    formData.get("isRead")
+  );
+  addBookToLibrary(book);
+});
