@@ -1,4 +1,8 @@
 const cards = document.querySelector(".cards");
+const popupBtn = document.querySelector(".header__btn");
+const popup = document.querySelector(".pop-up");
+
+popupBtn.addEventListener("click", () => popup.classList.add("show"));
 
 let myLibrary = [
   { title: "Hobbit", author: "Larry", pages: 123, isRead: true },

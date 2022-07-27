@@ -147,6 +147,8 @@ html {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
   border-bottom: 3px solid gray;
   flex-grow: 0;
@@ -204,6 +206,10 @@ html {
   top: 50%;
   background-color: rgba(0, 0, 0, 0.25);
   transform: translate(-50%, -50%);
+}
+
+.pop-up.show {
+  visibility: visible;
 }
 
 .pop-up__label,
