@@ -1,6 +1,10 @@
 const cards = document.querySelector(".cards");
 
-let myLibrary = [];
+let myLibrary = [
+  { title: "Hobbit", author: "Larry", pages: 123, isRead: true },
+  { title: "Hobbit 2", author: "Larry", pages: 44, isRead: false },
+  { title: "Hobbit 3: The Final", author: "Larry", pages: 678, isRead: false },
+];
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -14,7 +18,7 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${readInfo}.`;
 };
 
-function addBookToLibrary(book) {
+function addBookToDOM(book) {
   let bookCard = document.createElement("div");
   bookCard.classList.add("card");
 
@@ -40,6 +44,30 @@ function addBookToLibrary(book) {
   bookCard.appendChild(bookStatus);
 
   cards.appendChild(bookCard);
+}
+
+function addBookToLibrary(book) {
+  if (
+    myLibrary.some(
+      (myBook) =>
+        myBook.title === book.title &&
+        myBook.author === book.author &&
+        myBook.pages === book.pages &&
+        myBook.isRead === book.isRead
+    )
+  ) {
+    console.log(`${book.title} by ${book.author} already in your library.`);
+    return;
+  }
+
+  addBookToDOM(book);
 
   myLibrary.push(book);
 }
+
+function updateCards() {
+  cards.innerHTML = "";
+  myLibrary.forEach((book) => addBookToDOM(book));
+}
+
+updateCards();
